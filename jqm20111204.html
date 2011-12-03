@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html> 
+<head>
+  <meta charset="utf-8" >
+  <meta name="viewport" content="width=device-width, initial-scale=1"> 
+    <title>JQM電波暦'11(12/4)</title>
+  <link rel="stylesheet" href="css/jquery.mobile-1.0.min.css" > 
+  <style>
+  pre {
+     background-color:#000;
+     color:#FFF;
+     padding: 1em 1em 1em 1em ;
+  }
+  </style>
+ <script type="text/javascript" src="js/jquery-1.6.4.min.js">
+ </script>
+ <script>
+ $(document).bind("mobileinit", function(){
+   $.mobile.page.prototype.options.addBackBtn = true;
+   $.mobile.page.prototype.options.backBtnText = "戻る";
+ });
+ </script>
+ <script type="text/javascript" src="js/jquery.mobile-1.0.min.js">
+ </script>
+</head>                                             
+<body>                                              
+<div data-role="page" id="jqm20111204">
+   <div data-role="header">
+    <h1>JQM電波暦'11(12/4)</h1>
+   </div>
+   <div data-role="content" style="background-color:#FFF;">
+<center>
+<h4>
+jQuery Mobile <br>
+Addenpa Calendar 2011
+</h4>
+</center>
+<h4>第4話: ○×に△□を挿入<br>(2011/12/04)</h4>
+<p>
+今日は、動的にアレにナニを挿入する話をしよう。動的にということは、動きながらアレをナニに挿入するということだ。段々タイトルが酷くなっているような気がしているが、まぁ気にしないくれ。一応将来、この話が漫画化されることを想定して、<strong>少年誌に掲載できる</strong>レベル、いや少年が観たら<strong>喜ぶレベル</strong>で執筆しているつもりだ。さて、では<del>はじる</del>はじめるとしようか。
+</p>
+<p>
+これをお読みの貴兄、貴女は、必要に応じて情報を読み込み展開する遅延ローディングというテクニックをご存知だろうか? ちなみに、遅延の対義語として、
+<center>
+<h3>早漏</h3>
+</center>
+という言葉があるが、ここでは説明を省略する。
+</p
+<p>
+さて、その遅延ローディングだが、jQuery Mobileではちょっと厄介だ。例えば、次のようなコードを考えてみよう。
+<pre>
+&lt;script>
+isListLoaded=false;
+function addList(){
+  if(!isListLoaded){
+     $.post('./json.php',null, function(data){
+        $.each(data,function(e){
+           $('#list').append("&lt;li>"+data[e]+"&lt;/li>");
+        });
+     },"json");
+  }
+  isListLoaded=true;
+}
+&lt;/script>
+...
+
+&lt;div data-role="collapsible" 
+     data-collapsed="true" 
+     onclick="addList();">
+&lt;h3>展開するとロードしたデータを表示&lt;/h3>
+&lt;ul data-role="listview"  id="list">		
+&lt;/ul>
+&lt;/div>
+</pre>
+このコードは、アコーディオンを展開しようとすると、ajaxでデータを読み込みリストとして展開するものである。これをそのまま実行すると挿入したアイテムにはスタイルが適用されず崩れてしまう。
+<center>
+<h3>挿入が失敗した</h3>
+</center>
+と言っても過言ではないだろう。これを避けるには、アイテムを作成した後で、listview("refresh")を実行しなければならない。例えば、
+<pre>
+$.post('./json.php',null, function(data){
+  $.each(data,function(e){
+    $('#list').append("&lt;li>"+data[e]+"&lt;/li>");
+  });
+  $('#list').listview("refresh");
+},"json");
+</pre>
+こんな感じだ。なんか普通に技術説明をしている気がしなくてもないが、これなら安心してどんどんアレをナニに挿入することができる。
+</p>
+<p>
+ということで、そろそろネタが切れてきたので<a href="http://atnd.org/events/22837">第5話の執筆者を絶賛募集</a>する。諸君らの参戦を心待ちにしてるぞ。
+</p>
+<hr>
+</div>
+</div>
+</body>
+</html>
