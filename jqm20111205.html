@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html> 
+<head>
+  <meta charset="utf-8" >
+  <meta name="viewport" content="width=device-width, initial-scale=1"> 
+    <title>JQM電波暦'11(12/4)</title>
+  <link rel="stylesheet" href="css/jquery.mobile-1.0.min.css" > 
+  <style>
+  pre {
+     background-color:#000;
+     color:#FFF;
+     padding: 1em 1em 1em 1em ;
+  }
+  </style>
+ <script type="text/javascript" src="js/jquery-1.6.4.min.js">
+ </script>
+ <script>
+ $(document).bind("mobileinit", function(){
+   $.mobile.page.prototype.options.addBackBtn = true;
+   $.mobile.page.prototype.options.backBtnText = "戻る";
+ });
+ </script>
+
+ <script type="text/javascript" src="js/jquery.mobile-1.0.min.js">
+ </script>
+</head>                                             
+<body>                                              
+<div data-role="page" id="jqm20111204">
+   <div data-role="header">
+    <h1>JQM電波暦'11(12/5)</h1>
+   </div>
+   <div data-role="content" style="background-color:#FFF;">
+<center>
+<h4>
+
+jQuery Mobile <br>
+Addenpa Calendar 2011
+</h4>
+</center>
+<h4>第5話: 倦怠期に必要な再活性化<br />(2011/12/05)</h4>
+<p>
+今日は、長期に付き合うと陥りがちな<strong><a href="http://absolutehis.com/">倦怠期</a></strong>を解消する方法を紹介したいと思う。倦怠期とは恐ろしいものだが、お互いの仲を再活性することで回避が可能だ。最初は魅力的に見える相手でも、様々な経歴（動的に生成したDOM要素等）を経て魅力的に見えなくなることもあるだろう。そう、以下のラジオボタンの様に。<br />
+
+<center><img src="img/jqm20111205-1.JPG"></center><br />
+
+本来は美しいスタイルを維持した jQuery Mobile にも関わらず、このザマである。これでは100年の恋もいっぺんに冷めようというものだ。念のため、こうした倦怠期に陥るに至った過程（ソースコード）を以下に記載させて頂こう。
+<pre>
+&lt;script type="text/javascript">
+    function SendJsonRequest() {
+        $.ajax({
+            //中略........
+            success: function (res) {
+                for (var i = 0; i < res.length; i++) {
+                    //動的にDOM要素を生成する
+                    var dom1 = '&lt;input type="radio" name="radio-choice-0" value="choice-' + i + '" id="radio-choice-' + i + '" />';
+                    var dom2 = '&lt;label for="radio-choice-' + i + '">' + res[i] + '&lt;/label>';
+                    $('.ui-page-active #container1').append(dom1);
+                    $('.ui-page-active #container1').append(dom2);
+                }
+            },
+            error: function (err) {
+                alert('エラー終了です');
+            }
+        });
+    }
+&lt;/script>
+
+.....
+
+&lt;label for="flip-a">
+    お前の性癖を選ぶが良い！:&lt;/label>
+&lt;select name="seiheki" id="seiheki" data-role="slider" onchange="SendJsonRequest();">
+    &lt;option value="mazo">Mです&lt;/option>
+    &lt;option value="sado">Sです&lt;/option>
+&lt;/select>
+&lt;fieldset data-role="controlgroup" id="container1" data-type="horizontal">
+&lt;/fieldset>
+</pre>
+
+倦怠期に陥るには一方的に相手（jQuery Mobile）だけが悪いとは限らない。お互いに歩み寄る等の相互理解 or 譲歩が必要だ。ちょくちょく聞く話では、安易に
+<center>
+<h3>道具の利用に走る</h3>
+</center>
+といった乱暴な解決を試みる事があるようだが、少し落ち着いてほしい。ここで必要なのは相互理解であるし、もう少し相手（jQuery Mobile）について理解してみよう。今回のケースについては、<a href="jqm20111204.html">第4話: 第4話: ○×に△□を挿入</a> で
+<center>
+<h3>挿入が失敗した</h3>
+</center>
+と表現されていたが、今回は別のコンポーネントであるため、便宜上 <strong>倦怠期</strong> と呼ばせて頂いている。同問題を回避するには jQuery Mobile について理解するのが一番の近道だ。早速<a href="http://hisasann.com/housetect/2011/02/jquerymobile.html">ラブラブな程に jQuery Mobile を紹介している記事</a>を通読した結果、以下を実施すべきだと譲歩してみた。
+<pre>
+    $.ajax({
+        //中略........
+        complete: function (res) {
+            $("#container1").page();
+        }
+</pre>
+その結果、なんと恥ずかしがって隠れてしまった（display:none が設定された）のだ。<br />
+<center><img src="img/jqm20111205-1.JPG"></center><br />
+恥ずかしがって隠れてしまうとは、なんとも<a href="http://detail.chiebukuro.yahoo.co.jp/qa/question_detail/q1019653590">初奴</a>ではあるまいか。私の記憶が確かならば、jQuery Mobile b2 当時では上記の手順で倦怠期が回避できたはずだが、最近では方法が変わってしまったらしい。<br />
+そうは言っても、このままではお互いラブラブすることはできない。様々な試行錯誤の結果、以下であれば倦怠期を再活性できることが分かった。
+<pre>
+    $.ajax({
+        //中略........
+        complete: function (res) {
+            $("input[type='radio']").checkboxradio();
+        }
+</pre>
+上記の手順で再活性を行えば、jQuery Mobileとの仲も無事ラブラブに戻ることだろう。方々のマニュアルを見ると checkboxradio("refresh") となっている場合もあったりするのが尚更ツンデレ度合いを増している。<br />
+ラジオボタン以外の各コンポーネントでも同様の手順で回避できる。一度倦怠期に陥ったならば、同じツテを踏むのは回避したいものだ。
+<pre>
+    var dom = '&lt;input id="my_slider" type="range" name="slider" id="slider-0" value="25" min="0" max="100" />';
+    $("#container2").append(dom);
+    $("input[type='range']").slider();
+</pre>
+</p>
+
+<p>
+順調にネタが切れてきたので、<a href="http://atnd.org/events/22837">第6話の執筆者を絶賛募集</a>せざるを得ない。諸君らの参戦を心待ちにしている！
+</p>
+<hr>
+</div>
+</div>
+</body>
+</html>
