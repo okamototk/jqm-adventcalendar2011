@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html> 
+<head>
+  <meta charset="utf-8" >
+  <meta name="viewport" content="width=device-width, initial-scale=1"> 
+    <title>JQM電波暦'11(12/4)</title>
+  <link rel="stylesheet" href="css/jquery.mobile-1.0.min.css" > 
+  <style>
+  pre {
+     background-color:#000;
+     color:#FFF;
+     padding: 1em 1em 1em 1em ;
+  }
+  </style>
+ <script src="js/jquery-1.6.4.min.js">
+ </script>
+ <script>
+ $(document).bind("mobileinit", function(){
+   $.mobile.page.prototype.options.addBackBtn = true;
+   $.mobile.page.prototype.options.backBtnText = "戻る";
+ });
+ </script>
+
+ <script src="js/jquery.mobile-1.0.min.js">
+ </script>
+</head>                                             
+<body>                                              
+<div data-role="page" id="jqm20111204">
+   <div data-role="header">
+    <h1>JQM電波暦'11(12/6)</h1>
+   </div>
+   <div data-role="content" style="background-color:#FFF;">
+<center>
+<h4>
+
+jQuery Mobile <br>
+Addenpa Calendar 2011
+</h4>
+</center>
+<h4>第6話: 未来を司る女神「トリガー」<br />(2011/12/06)</h4>
+<p>
+<a href="http://okamototk.github.com/jqm-adventcalendar2011/jqm20111204.html">第4話: 倦怠期に必要な再活性化</a>、<a href="http://okamototk.github.com/jqm-adventcalendar2011/jqm20111205.html">第5話: 倦怠期に必要な再活性化</a>とDOMツリーの動的操作の話について紹介してきた。<strong>性的でないのが残念</strong>で仕方ないが。
+</p>
+<p>
+さて、今回は動的なDOMツリーの活性化方法として、triggerについて紹介しよう。triggerとはクロノを頭に付ければ、クロノトリガーと<strong>何処かで聞いたRPGの名前</strong>になるキーワードのことだ。フォーンを後に付ければ、トリガーフォーンとDメールが送れる携帯電話になるが、<strong>jQuery Mobileは残念ながら携帯電話では使えない</strong>。
+</p>
+<p>
+ただ、どちら未来を変えることができるという点は共通している。これらのトリガーと同じように、<strong>triggerはDOMツリーの未来を変えることができる</strong>。例えば、次のような動的にツリーを生成するサンプルを考えてみよう。
+<pre>
+/* 下記のコードをDOM生成以降に実行し、動的にフォームを追加 */
+$("#collaspable").append('
+&lt;fieldset data-role="controlgroup"><legend>好きプレイを選んでね&lt;/legend>
+&lt;input type="checkbox" name="are" id="are" class="custom" />
+&lt;label for="checkbox-1a">あんなの&lt;/label>
+
+&lt;input type="checkbox" name="sore" id="sore" class="custom" />
+&lt;label for="checkbox-2a">そんなの&lt;/label>
+
+&lt;input type="checkbox" name="kore" id="kore" class="custom" />
+&lt;label for="checkbox-3a">こんなの&lt;/label>
+
+&lt;/fieldset>');
+
+
+...
+&lt;form id="collaspable">&lt;/form>
+</pre>
+例によって、上記のサンプルにより生成されたチェックボックスには、jQuery Mobileのスタイルが適用されない。こんな感じで表示されるだろう。
+</p>
+<hr />
+<p>
+<fieldset data-role="controlgroup"><legend>好きプレイを選んでね</legend>
+<input type="checkbox" name="are1" id="are1" class="custom" data-role="none" />
+<label for="are1">あんなの</label>
+
+<input type="checkbox" name="sore1" id="sore1" class="custom" data-role="none" />
+<label for="sore1">そんなの</label>
+
+<input type="checkbox" name="kore1" id="kore1" class="custom" data-role="none" />
+<label for="kore1">こんなの</label>
+
+</fieldset>
+</form>
+</p>
+<hr />
+<p>
+これが、α世界線上のcheckboxの結果だ。<a href="http://okamototk.github.com/jqm-adventcalendar2011/jqm20111205.html">前回の記事では、checkboxradio()を使ってjQuery Mobileの世界線...すなわちβ世界線に移動した</a>が、トリガーを使えばコンポーネントの種類を問わずβ世界線に移動することができる。具体的には、次のようなコードに変更してみよう。
+<pre>
+$("#collaspable").append('
+&lt;fieldset data-role="controlgroup">&lt;legend>好きプレイを選んでね&lt;/legend>
+...
+&lt;/fieldset>').trigger("create");
+</pre>
+トリガーにより、タグの未来は改ざんされ、次のようなjQuery Mobileのフォームが貴男、貴女の前に現れることだろう。
+</p>
+<p>
+<hr />
+<form>
+<fieldset data-role="controlgroup" ><legend>好きプレイを選んでね</legend>
+<input type="checkbox" name="are2" id="are2" class="custom" />
+<label for="are2">あんなの</label>
+
+<input type="checkbox" name="sore2" id="sore2" class="custom" />
+<label for="sore2">そんなの</label>
+
+<input type="checkbox" name="kore2" id="kore2" class="custom" />
+<label for="kore2">こんなの</label>
+
+</fieldset>
+</form>
+</p>
+<hr />
+<p>
+トリガーは強力だ。女の子別の攻略方法を考える隙もなくトリガー一発でどんな<del>女の子</del>フォームコンポーネントもjQuery Mobileの世界に連れ込むことができるのだ。読者諸君、是非トリガーを使ってみてくれたまえ。ただし、<strong>女の子別の攻略ルートに萌える貴男</strong>はcheckboxradio()やslider()が好みかも知れない。
+</p>
+<p>
+ここまで読み進めてきたそこの君、そろそろ自分でネタを書きたくなったころではないだろうか?<a href="http://atnd.org/events/22837">絶賛執筆者を募集している</a>ので、是非参加して欲しい。今なら、jQuery Advent CalendarのNo3になれる。ちなみに、jQuery Mobile Advent Calendarを初めてから、私のフォローワが鰻登りに増えた。jQuery Mobile Advent Calendarへの参加することにより、「僕はフォロワーが少ない」と嘆くことも無くなるだろう。貴男、貴女の参戦を心待ちにしている！
+</p>
+<hr>
+</div>
+</div>
+</body>
+</html>
