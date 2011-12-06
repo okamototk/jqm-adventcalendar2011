@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html> 
+<head>
+  <meta charset="utf-8" >
+  <meta name="viewport" content="width=device-width, initial-scale=1"> 
+    <title>JQM電波暦'11(12/7)</title>
+  <link rel="stylesheet" href="css/jquery.mobile-1.0.min.css" > 
+  <style>
+  pre {
+     background-color:#000;
+     color:#FFF;
+     padding: 1em 1em 1em 1em ;
+  }
+  </style>
+ <script src="js/jquery-1.6.4.min.js">
+ </script>
+ <script>
+ $(document).bind("mobileinit", function(){
+   $.mobile.page.prototype.options.addBackBtn = true;
+   $.mobile.page.prototype.options.backBtnText = "戻る";
+   $(document).bind("pagebeforechange",function(e,data){
+     $.getScript("//platform.twitter.com/widgets.js");
+   });
+ });
+ </script>
+
+ <script src="js/jquery.mobile-1.0.min.js">
+ </script>
+</head>                                             
+<body>                                              
+<div data-role="page" id="jqm20111207">
+   <div data-role="header">
+    <h1>JQM電波暦'11(12/7)</h1>
+   <span style="position: absolute; right: 10px; top: .6em">
+       <a href="https://twitter.com/share"
+class="twitter-share-button data-role-none" data-count="none"
+data-via="LightningX" data-lang="ja">ツイート</a></span>
+   </div>
+   <div data-role="content" style="background-color:#FFF;">
+<center>
+<h4>
+jQuery Mobile <br>
+Addenpa Calendar 2011
+</h4>
+</center>
+<h4>第7話: jQuery Mobileへの貢物<br />(2011/12/07)</h4>
+<p>
+読者の諸君は、好きな異性ができたらどうしているだろうか。このようなときに、<strong>我々のような何の魅力もない人間</strong>に取って欠かせない物がある。それは<strong>貢物</strong>だ。人間に魅力はなくても<strong>物量で押せば心が傾くかもしれない</strong>。そんな無駄な思いを持っている貴兄らも沢山いるはずだ。今日はそんな貢物に関する話をしよう。
+</p>
+<p>
+<h2>愚かなるパッチのブログへの投稿</h2>
+<p>
+ブログなどを読んでいると、パッチを高々とブログに貼り付け、やれバグを直しただの、やれ機能追加をしただのと騒いでいる人を良く見かける。そんな記事を読んで私は思う。
+<center>
+<h4>
+「そんなパッチ童貞でも書けるわ」
+</h4>
+</center>
+と。まぁ、本人の恍惚とした自己満足を壊しては悪いので、<strong>百歩譲ってそれはよし</strong>としよう。しかし、ここに重大な問題がある。そのパッチの恩恵を受けれる人は<strong>そのブログを読んだ人</strong>、かつ、<strong>そのパッチを必要だと感じた人</strong>だけだ。そもそも、パッチを張り付けるようなブログを私は読む気になれない。それは、読者の諸君も同感だろう。
+</p>
+<p>
+ここまでは一般論の話だが、jQuery Mobileもオープンソースとして開発されているので、そのうち好からぬ輩がローカルパッチをブログなどで公開し兼ねない。非常に残念なことに。そこで、それを避けるいい方法を紹介しよう。
+</p>
+<h2>答えはGitHub。これが全て</h2>
+<p>
+答えは<a href="https://github.com/jquery/jquery-mobile">jQuery Mobileは、GitHubで開発されている</a>ところにある。それが全てだ。jQuery Mobileに手を入れたければ、GitHubの画面から<a href="https://github.com/jquery/jquery-mobile/network">フォークを作成</a>し、ブランチを切って修正、機能追加を行い、終わったらテストが問題なく通ることを確認して、<a href="https://github.com/jquery/jquery-mobile/pulls">GitHubの画面からプルリクエスト</a>を送るだけで修正や変更をjQuery Mobile本家の開発者達に伝えることができる。
+</p>
+<p>
+jQuery Mobile本家に取り込まれてしまえば、
+<center>
+<h4>
+誰も読んでもいない糞つまらないブログ
+</h4>
+</center>
+を漁らなくとも、jQuery Mobileを利用している全てのユーザが貴男、貴女の書いたパッチの恩恵を受けることができるのだ。その影響範囲は日本に留まらず
+<center>
+<h2>
+世界中の開発者
+</h2>
+</center>
+だ。たった一つのぷるリクエストで世界中の開発者が幸せになれるのだ。jQuery Mobileの修正・機能追加を行ったときは、<a href="https://github.com/jquery/jquery-mobile/pulls">是非プルリクエストを投げて</a>みてくはどうだろうか。
+</p>
+<p>
+ちなみに、「自分は英語ができないから...」というヘタレが居るかもしれないが、幸いにもGoogle翻訳やExcite翻訳など、優れた日英翻訳サービスがあるのでそれを使えば、
+<center>
+<h2>
+大丈夫だ、問題ない。
+</h2>
+</center>
+私は翻訳サービスを使い既に100以上のパッチをオープンソースプロジェクトへフィードバックしてきた。ニュアンスさえ伝わればあとはなんとかなるものだ。
+</p>
+<p>
+jQuery Mobile Advent Calendarでは、相変わらず<a href="http://atnd.org/events/22837">絶賛執筆者を募集している</a>ので、是非参加して欲しい。今なら、jQuery Advent CalendarのNo3になれる。ちなみに、jQuery Mobile Advent Calendarを初めてから、私のフォローワが鰻登りに増えた。jQuery Mobile Advent Calendarへの参加することにより、「僕はフォロワーが少ない」と嘆くことも無くなるだろう。貴男、貴女の参戦を心待ちにしている！
+</p>
+<hr>
+</div>
+</div>
+</body>
+</html>
+</p>
