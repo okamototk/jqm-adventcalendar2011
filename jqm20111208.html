@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html> 
+<head>
+  <meta charset="utf-8" >
+  <meta name="viewport" content="width=device-width, initial-scale=1"> 
+    <title>JQM電波暦'11(12/8)</title>
+  <link rel="stylesheet" href="css/jquery.mobile-1.0.min.css" > 
+  <style>
+  pre {
+     background-color:#000;
+     color:#FFF;
+     padding: 1em 1em 1em 1em ;
+  }
+  </style>
+ <script type="text/javascript" src="js/jquery-1.6.4.min.js">
+ </script>
+ <script>
+ $(document).bind("mobileinit", function(){
+   $.mobile.page.prototype.options.addBackBtn = true;
+   $.mobile.page.prototype.options.backBtnText = "戻る";
+ });
+ </script>
+
+ <script type="text/javascript" src="js/jquery.mobile-1.0.min.js">
+ </script>
+</head>                                             
+<body>                                              
+<div data-role="page" id="jqm20111208">
+   <div data-role="header">
+    <h1>JQM電波暦'11(12/8)</h1>
+   </div>
+   <div data-role="content" style="background-color:#FFF;">
+<center>
+<h4>
+
+jQuery Mobile <br>
+Addenpa Calendar 2011
+</h4>
+</center>
+<h4>第8話: jQuery Mobile は非同期が好き<br />(2011/12/08)</h4>
+<p>
+そろそろ忘年会シーズンに突入してる昨今、諸君らは如何お過ごしだろうか。周りの気になる異性なんぞにちょっと声をかけて誘おうとしたところで、お互いが非同期に話しかけあってデッドロックをするなどという初々しいシーンに突入していようものなら、是非爆発して頂きたいと考えている。そんなリア充な読者は存在しないという前提のもと、今回は HTML5 を利用した RIA充な フレームワーク jQuery Mobile の非同期処理がもたらす弊害について紹介したい。</p>
+<p>
+jQuery Mobileは、デフォルトの設定では全てのリクエストを非同期（「えっ、、」「あのっ、、、」と言った、エロゲーで出てくる引っ込み思案キャラクター＆引っ込み思案主人公の出会いシーンを妄想して頂けると幸いだ）リクエストとして送付する。この際、次画面をや前画面をキャッシュで保持するため、京アニとまではいかないまでも CSS3を利用したナイスな遷移アニメーションを利用することが出来る。</p>
+<p>
+これだけ聞くと<b>至れり尽くせりな幼馴染なエロゲーヒロイン</b>を連想してしまうだろうが、現実の世界にそうした女の子が居ないように、世の中そんなに甘くはない。リダイレクトページを利用する際に問題となる。jQuery Mobile のページから <a href="http://d.hatena.ne.jp/waritohutsu/20101225/1293276322">Google, Live ID, Yahoo等の認証ページ</a>にリダイレクトする場合、何も設定をしないと「Error Loading」というエラーメッセージが表示されるのだ。認証など利用しなければ良いと考えている剛の者もいるかもしれないが、
+<center><h3><a href="http://d.hatena.ne.jp/waritohutsu/20101225/1293276485">俺の嫁を安易に人目に触れさせたくない</a></h3></center>
+という確固たる要求がある場合は致し方ないところだ。リダイレクト失敗により、せっかくうまくいきそうだったアプリが動作しない悲しみ、まるでプレイしだして一番ナイスなヒロインが攻略非対象だった時の様な衝撃だろう。</p>
+<p>
+本問題を解決するには、デフォルト設定である非同期リクエストをオフにする必要がある。設定例は以下の様に data-ajax="false" とすることで対応が可能だ。
+<pre>
+&lt;a href="@Url.Content("~/Account/LogOn")" data-ajax="false">ログイン&lt;/a>
+</pre>
+一方で、<b>ヒロイン個別ルートをメッセージスキップ無しで攻略する様一個一個のタグに設定するのは嫌</b>という場合もあるだろう。そうした場合には、デフォルトの設定を data-ajax="false" とする以下のコードを&lt;head>タグ内部で読み込む方法も存在する。
+<pre>
+$(document).bind("mobileinit", function () {
+    $.mobile.ajaxEnabled = false;
+});
+</pre>
+</p>
+この方法を把握していれば、「えっ、、」「あのっ、、、」と言った、エロゲーで出てくる引っ込み思案キャラクター＆引っ込み思案主人公の出会いシーンでも柔軟に対応し、相手をリードすることが出来るだろう。是非、まずは相手を探すところから始めよう。
+<p>
+さて、本 Addenpa Calender では <a href="http://atnd.org/events/22837">第8話の執筆者を絶賛募集</a>だ。今回の jQuery Mobile Addenpa Calendar参加により、私も <a href="http://twitter.com/#!/LightningX">ヨハン氏</a>と硬い絆で結ばれたと言っても過言ではないだろう。（聖闘士）聖夜までの熱い盛り上がり、是非諸君らにもご参加頂きたい。
+</p>
+<hr>
+</div>
+</div>
+</body>
+</html>
