@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html> 
+<head>
+  <meta charset="utf-8" >
+  <meta name="viewport" content="width=device-width, initial-scale=1"> 
+    <title>JQM電波暦'11(12/8)</title>
+  <link rel="stylesheet" href="css/jquery.mobile-1.0.min.css" > 
+  <style>
+  pre {
+     background-color:#000;
+     color:#FFF;
+     padding: 1em 1em 1em 1em ;
+  }
+  </style>
+ <script src="js/jquery-1.6.4.min.js">
+ </script>
+ <script>
+ $(document).bind("mobileinit", function(){
+   $.mobile.page.prototype.options.addBackBtn = true;
+   $.mobile.page.prototype.options.backBtnText = "戻る";
+   $(document).bind("pagebeforechange",function(e,data){
+     $.getScript("//platform.twitter.com/widgets.js");
+   });
+ });
+ </script>
+
+ <script src="js/jquery.mobile-1.0.min.js">
+ </script>
+</head>                                             
+<body>                                              
+<div data-role="page" id="jqm20111208">
+   <div data-role="header">
+    <h1>JQM電波暦'11(12/9)</h1>
+   <span style="position: absolute; right: 10px; top: .6em">
+       <a href="https://twitter.com/share"
+class="twitter-share-button data-role-none" data-count="none"
+data-via="LightningX" data-lang="ja">ツイート</a></span>
+   </div>
+   <div data-role="content" style="background-color:#FFF;">
+<center>
+<h4>
+jQuery Mobile <br>
+Addenpa Calendar 2011
+</h4>
+</center>
+<h4>第9話: 消えたさちを追って(前編)<br>(2011/12/09)</h4>
+<p>
+<a rel="external" href="//www.google.co.jp/">test</a>
+密室殺人というのは、ミステリーの定番でありながらなかなかネタ作りが難しい。如何に読者にトリックを気付かれないようにシナリオ作りをするかが重要だ。邪気眼的やエロオヤジ的な文書ばかり書いていては一流作家とは言えないので、今日はミステリー調で行ってみよう。
+</p>
+<p>
+x月x日の早朝、電話の音が鳴り響く。今日は日曜日だが、事件に休日は関係ない。むしろ休日にこそ事件が起きると言うべきか。そんな訳で、われわれ湾岸署の刑事(デカ)は日曜の早朝から叩き起こされ現場に集合するハメになった。私の名前は青島だ。覚えておくといい。ちなみに、私の上司は室出さんだが、みんな親しみをこめて<strong>モロダシさん</strong>と呼んでいる。
+</p>
+<p>
+それはさておき、現場にたどり着きわれわれはまずは聞き込みに入った。そこで驚愕の事実を付きつけられた。searchが消えたというのだ。それは一体どういうことなのだろうか?例えば、次のようなコードがあるとしよう。
+<pre>
+<&lt;input type="search" ...>
+</pre>
+HTML5からsearchタイプが規定され、このsearchタグを利用すると文字を入力してリターンキーを押下するだけで、onsearchイベントが実行できる。iPhoneなどでは、ソフトウェアキーボードに「検索」というキーが追加されていることだろう。これにより、検索機能を簡単に提供することができる。しかしながら、jQuery Mobileのページ内でsearchを利用すると、onsearchイベントが取得できないというのだ。どうしてだろうか、我々は鑑識を読んでGoogle Chrome Developer Toolで死体を調べてもらった。
+</p>
+<p>
+その結果、jQuery Mobileはinput type="search"の要素を勝手にinput type="text"に書き換え、虫眼鏡のマークをフィールドに追加し、あたかも検索フィールドのように見せかけているというのだ。そう、searchは密室殺人ならぬ、密コード殺人の如く消されてた。害者を殺ったのは誰か? それは、疑いようもなくjQuery Mobileだった。
+</p>
+<p>
+では、どうすればいいのだろうか?次のようにdata-role="none"を設定すれば、その要素はjQuery Mobileによる変換の適用外になる。
+<pre>
+<&lt;input type="search" data-role="none" ...>
+</pre>
+もし諸君が似たような事件に遭遇したらdata-role="none"とやるといいだろう。ちなみに、この方法ではjQuery Mobileのスタイルが解除されていしまうという欠点がある。これについては次回の記事を待て。
+</p>
+<p>
+jQuery Mobile Addenpa Calender では <a href="http://atnd.org/events/22837">執筆者を募集</a>している。（聖闘士）聖夜までの熱い盛り上がり、貴兄にもご参加頂きたい。
+</p>
+<hr>
+</div>
+</div>
+</body>
+</html>
+</p>
