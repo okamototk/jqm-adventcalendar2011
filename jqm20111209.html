@@ -54,7 +54,7 @@ x月x日の早朝、電話の音が鳴り響く。今日は日曜日だが、事
 <p>
 それはさておき、現場にたどり着きわれわれはまずは聞き込みに入った。そこで驚愕の事実を付きつけられた。searchが消えたというのだ。それは一体どういうことなのだろうか?例えば、次のようなコードがあるとしよう。
 <pre>
-<input type="search" ...>
+&;lt;input type="search" ...>
 </pre>
 HTML5からsearchタイプが規定され、このsearchタグを利用すると文字を入力してリターンキーを押下するだけで、onsearchイベントが実行できる。iPhoneなどでは、ソフトウェアキーボードに「検索」というキーが追加されていることだろう。これにより、検索機能を簡単に提供することができる。しかしながら、jQuery Mobileのページ内でsearchを利用すると、onsearchイベントが取得できないというのだ。どうしてだろうか、我々は鑑識を読んでGoogle Chrome Developer Toolで死体を調べてもらった。
 </p>
@@ -64,9 +64,17 @@ HTML5からsearchタイプが規定され、このsearchタグを利用すると
 <p>
 では、どうすればいいのだろうか?次のようにdata-role="none"を設定すれば、その要素はjQuery Mobileによる変換の適用外になる。
 <pre>
-<input type="search" data-role="none" ...>
+&lt;input type="search" data-role="none" ...>
 </pre>
-もし諸君が似たような事件に遭遇したらdata-role="none"とやるといいだろう。ちなみに、この方法ではjQuery Mobileのスタイルが解除されていしまうという欠点がある。これについては次回の記事を待て。
+もし諸君が似たような事件に遭遇したらdata-role="none"とやるといいだろう。ちなみに、この方法では次のようにjQuery Mobileのスタイルが解除されていしまうという欠点がある。
+<hr />
+<input type="search" data-role="none" >
+<hr />
+本来のjQuery Mobileのスタイルが適用された検索ボックはこのように表示される。
+<hr />
+<input type="search">
+<hr />
+これについては次回の記事を待て。
 </p>
 <p>
 jQuery Mobile Addenpa Calender では <a href="http://atnd.org/events/22837">執筆者を募集</a>している。（聖闘士）聖夜までの熱い盛り上がり、貴兄にもご参加頂きたい。
