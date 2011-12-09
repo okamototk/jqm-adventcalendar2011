@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html> 
+<head>
+  <meta charset="utf-8" >
+  <meta name="viewport" content="width=device-width, initial-scale=1"> 
+    <title>JQM電波暦'11(12/10)</title>
+  <link rel="stylesheet" href="css/jquery.mobile-1.0.min.css" > 
+  <style>
+  pre {
+     background-color:#000;
+     color:#FFF;
+     padding: 1em 1em 1em 1em ;
+  }
+  </style>
+ <script src="js/jquery-1.6.4.min.js">
+ </script>
+ <script>
+ $(document).bind("mobileinit", function(){
+   $.mobile.page.prototype.options.addBackBtn = true;
+   $.mobile.page.prototype.options.backBtnText = "バルス";
+   $(document).bind("pagebeforechange",function(e,data){
+     $.getScript("//platform.twitter.com/widgets.js");
+   });
+ });
+ </script>
+
+ <script src="js/jquery.mobile-1.0.min.js">
+ </script>
+</head>                                             
+<body>                                              
+<div data-role="page" id="jqm20111210">
+   <div data-role="header">
+    <h1>JQM電波暦'11(12/10)</h1>
+   <span style="position: absolute; right: 10px; top: .6em">
+       <a href="https://twitter.com/share"
+class="twitter-share-button data-role-none" data-count="none"
+data-via="LightningX" data-lang="ja">ツイート</a></span>
+   </div>
+   <div data-role="content" style="background-color:#FFF;">
+<center>
+<h4>
+jQuery Mobile <br>
+Addenpa Calendar 2011
+</h4>
+</center>
+<h4>第10話:バルスボタンの作り方<br>(2011/12/10)</h4>
+<p>
+昨日2011年12月9日が何の日かご存じだろうか。そう、そうである。
+<center>
+<h3>天空の城ラピュタ</h3>
+</center>
+の再放送がある日だ。地デジ用のリマスター版で放映され、時間枠もいつもより長く取ってあるので、恐らくノーカットのフルHDの映像で放映されただろうと思われる。
+<strong>「だろうと思われる?」</strong>だって? 神の悪戯か、私は不幸にも打ち合わせでラピュタを見ることはできなかった。今帰ったところなのだ。見ることができなかったのだ。
+<center>
+<h3>2時間40分だけ待ってやる(ムスカ)</h3>
+</center>
+と言ってくれればよかったのだが。さて、気を取り直して、今日は天空の城ラピュタの放映を記念してバルスボタンの作り方を教えよう。
+</p>
+<p>
+jQuery Mobileは、戻るボタンの文字がデフォルトは「Back」であるが、任意の文字に変更することができる。この機能を利用して、Backの代わりに「バルス」を設定すればいい。以上だ。具体的なコードは次のようになるだろう。
+<pre>
+ $(document).bind("mobileinit", function(){
+   $.mobile.page.prototype.options.addBackBtn = true;
+   $.mobile.page.prototype.options.backBtnText = "バルス";
+ });
+</pre>
+皆が観ているページの左上のボタンを見て欲しい。すでにバルスになっているはずだ。
+</p>
+<p>
+なに? そこの貴様、私に何か言いたいのか? 
+<center>
+<h3>「今日の記事は手抜きではないか?」</h3>
+</center>
+だって？そんなことはない。ラピュタ放映記念ということで、電車の中でラピュタのTLを羨ましくも見つつ、密かに執筆し公開したのだ。決して、手抜きではないぞ。
+</p>
+<p>
+jQuery Mobile Addenpa Calender では <a href="http://atnd.org/events/22837">執筆者を募集</a>している。
+
+<center>
+<h3>JQMアドベントカレンダーが<br>ゴミのようだ</h3>
+</center>
+<a href="http://atnd.org/events/22837">と思っている諸君の参加</a>をお待ちしている。
+</p>
+<hr>
+</div>
+</div>
+</body>
+</html>
+
