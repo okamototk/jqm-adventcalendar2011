@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html> 
+<head>
+  <meta charset="utf-8" >
+  <meta name="viewport" content="width=device-width, initial-scale=1"> 
+    <title>JQM電波暦'11(12/11)</title>
+  <link rel="stylesheet" href="css/jquery.mobile-1.0.min.css" > 
+  <style>
+  pre {
+     background-color:#000;
+     color:#FFF;
+     padding: 1em 1em 1em 1em ;
+  }
+  </style>
+ <script type="text/javascript" src="js/jquery-1.6.4.min.js">
+ </script>
+ <script>
+ $(document).bind("mobileinit", function(){
+   $.mobile.page.prototype.options.addBackBtn = true;
+   $.mobile.page.prototype.options.backBtnText = "戻る";
+ });
+ </script>
+
+ <script type="text/javascript" src="js/jquery.mobile-1.0.min.js">
+ </script>
+</head>                                             
+<body>                                              
+<div data-role="page" id="jqm20111211">
+   <div data-role="header">
+    <h1>JQM電波暦'11(12/11)</h1>
+   </div>
+   <div data-role="content" style="background-color:#FFF;">
+<center>
+<h4>
+
+jQuery Mobile <br>
+Addenpa Calendar 2011
+</h4>
+</center>
+<h4>第11話: 君に届けこの思い！（ファイルアップロード編）<br />(2011/12/11)</h4>
+<p>日食を見て、上がってしまったテンションを下げられないであろう各位、以下にお過ごしだろうか。年末も差し迫った昨今、多忙ゆえに積みゲーが増えてきた方も多いことだろう。積んでしまった嫁たちに熱い思いをぶつけようと悶々としつつ、方法を模索している諸君らに朗報だ。「<b>jQuery Mobile でもファイルアップロードが可能</b>」なのである。</p>
+<p>
+そうは言っても制限がある。そう、素敵なヒロインのルートに入るには条件があるのこと同じことだ。実は
+<center><h4>Android 端末以外はファイルアップロード部品が利用できない</h4></center>
+のである。実際に私の手元にある iPhone, Windows Phone で試したが、ファイルアップロードのボタンが有効化されず、ボタンのクリックが出来なかった。</p>
+<p>
+ファイルアップロードなど、「enctype="multipart/form-data"を設定すれば良いのでは…」と考えた方も居るだろう。が、それは甘い！甘すぎる！！冒頭から朝起しに来てくれる幼馴染が居たり、ふと歩いていたら美少女と出会ってしまうギャルゲーの主人公位に甘いというものだ。&lt;form>タグに multipart/form-data を指定しただけでは、以下の様に通常のPOSTリクエストと同じ扱いになってしまう。</p>
+<center><img src="http://cdn-ak.f.st-hatena.com/images/fotolife/w/waritohutsu/20111015/20111015162411.jpg" width="450" /></center>
+<p>
+本問題を解決するにも、デフォルト設定である非同期リクエストをオフにする必要がある。&lt;form>タグに data-ajax="false" とすることで対応が可能だ。以下の例に従って対応してほしい。
+<pre>
+&lt;form action="/" method="post" enctype="multipart/form-data" data-ajax="false">
+  氏名　　　　：&lt;input type="text" name="username" />
+  送信ファイル：&lt;input type="file" name="submitfile" />
+&lt;/form>
+</pre>
+もちろん以下の様に設定することも可能だ。
+<pre>
+$(document).bind("mobileinit", function () {
+    $.mobile.ajaxEnabled = false;
+});
+</pre>
+是非試して頂きたい(｀･ω･´)ゞ。諸君らの熱い思い、きっと各位の嫁にも届いたはずだ。是非（聖闘士）聖夜にはツーショットの写真をあげて頂きたいものだ。
+</p>
+<p>
+さて、本 Addenpa Calender では <a href="http://atnd.org/events/22837">執筆者を絶賛募集</a>だ。（聖闘士）聖夜までの熱い盛り上がり、是非諸君らにもご参加頂きたい。
+</p>
+<hr>
+</div>
+</div>
+</body>
+</html>
