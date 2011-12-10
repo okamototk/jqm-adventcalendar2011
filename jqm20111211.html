@@ -45,7 +45,7 @@ Addenpa Calendar 2011
 のである。実際に私の手元にある iPhone, Windows Phone で試したが、ファイルアップロードのボタンが有効化されず、ボタンのクリックが出来なかった。</p>
 <p>
 ファイルアップロードなど、「enctype="multipart/form-data"を設定すれば良いのでは…」と考えた方も居るだろう。が、それは甘い！甘すぎる！！冒頭から朝起しに来てくれる幼馴染が居たり、ふと歩いていたら美少女と出会ってしまうギャルゲーの主人公位に甘いというものだ。&lt;form>タグに multipart/form-data を指定しただけでは、以下の様に通常のPOSTリクエストと同じ扱いになってしまう。</p>
-<center><img src="http://cdn-ak.f.st-hatena.com/images/fotolife/w/waritohutsu/20111015/20111015162411.jpg" width="450" /></center>
+<center><img src="jqm20111211.JPG" width="450" /></center>
 <p>
 本問題を解決するにも、デフォルト設定である非同期リクエストをオフにする必要がある。&lt;form>タグに data-ajax="false" とすることで対応が可能だ。以下の例に従って対応してほしい。
 <pre>
