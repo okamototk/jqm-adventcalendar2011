@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html> 
+<head>
+  <meta charset="utf-8" >
+  <meta name="viewport" content="width=device-width, initial-scale=1"> 
+    <title>JQM電波暦'11(12/10)</title>
+  <link rel="stylesheet" href="css/jquery.mobile-1.0.min.css" > 
+  <style>
+  pre {
+     background-color:#000;
+     color:#FFF;
+     padding: 1em 1em 1em 1em ;
+  }
+  </style>
+ <script src="js/jquery-1.6.4.min.js">
+ </script>
+ <script>
+ $(document).bind("mobileinit", function(){
+   $.mobile.page.prototype.options.addBackBtn = true;
+   $.mobile.page.prototype.options.backBtnText = "戻る";
+   $(document).bind("pagebeforechange",function(e,data){
+     $.getScript("//platform.twitter.com/widgets.js");
+   });
+ });
+ </script>
+
+ <script src="js/jquery.mobile-1.0.min.js">
+ </script>
+</head>                                             
+<body>                                              
+<div data-role="page" id="jqm20111212">
+<script>
+   $("#jqm20111212").live('pageshow',function(pe,ui){
+     $("#search").live("keypress",function(e){
+       if(e.keyCode == $.mobile.keyCode.ENTER){
+         alert('検索処理実行！！\nキーワード:'+$("#search").val());
+       }
+     });
+   });
+</script>
+   <div data-role="header">
+    <h1>JQM電波暦'11(12/12)</h1>
+   <span style="position: absolute; right: 10px; top: .6em">
+       <a href="https://twitter.com/share"
+class="twitter-share-button data-role-none" data-count="none"
+data-via="LightningX" data-lang="ja">ツイート</a></span>
+   </div>
+   <div data-role="content" style="background-color:#FFF;">
+<center>
+<h4>
+jQuery Mobile <br>
+Addenpa Calendar 2011
+</h4>
+</center>
+<h4>第8話: 消えたさちを追って(後編)<br>(2011/12/12)</h4>
+<p>
+<h5><a href="jqm20111212.html">前編のあらすじ</a></h5>
+前編から時間が開いてしまったが、私こと青島刑事はsearchが消えたという報告を受け、現場を駆けつけた。調査の結果
+<pre>
+&lt;input type="search" data-role="none" ...>
+</pre>
+とすることで解決したように見えたが、それは本質ではなかった。ちなみに、私の上司は<strong>室出(モロダシ)</strong>さんである...
+</p>
+<p>
+さて、<a href="jqm20111209.html">前回</a>、data-role="none"とすると、jQuery Mobileで適用されたスタイルが解除されてしまうというところまで話をした。しかし、こんな貧祖なボックスを誰が使いたいと思うだろうか?
+<hr />
+<h5>貧祖な検索ボックス</h5>
+<input type="search" name="search-none" data-role="none">
+<hr />
+結論を言おう。次のようにすればいい。
+<pre>
+&lt;script>
+ $(document).bind("mobileinit", function(){
+   $("#pageid").live('pageshow',function(pe,ui){
+     $("#search").live("keypress",function(e){
+       if(e.keyCode == $.mobile.keyCode.ENTER){
+         // 検索処理
+       }
+     });
+   });
+ });
+&lt;/script>
+
+...
+
+&lt;input type="search" name="search">
+</pre>
+検索ボックスのキーイベントを拾ってやって、キーコードがEnter($.mobile.keyCode.ENTER)であれば、検索処理を実行すればよい。inputタグはformで囲わないのがポイントだ。<strong>formで囲ってしまうと、エンターキーを押すとフォームがサブミットされてしまう</strong>ので注意が必要。
+この方法で表示された検索ボックスは、次のように表示されるだろう。
+<hr />
+<h5>ちょっと豪華な検索ボックス</h5>
+<input type="search" name="search" id="search">
+<hr />
+やはり、裸の検索ボックスよりは、制服で着飾った検索ボックスの方が萌えると思うのだが、読者の諸君は如何だろうか。(HTMLのテキストボックスに)見えそうで見えない、ぎりぎりの境界線が一番興奮するところであると切に感じる今日この頃である。
+<p>
+jQuery Mobile Addenpa Calender では <a href="http://atnd.org/events/22837">執筆者を募集</a>している。（聖闘士）聖夜までの熱い盛り上がり、貴兄にもご参加頂きたい。
+</p>
+<hr>
+</div>
+</div>
+</body>
+</html>
+
