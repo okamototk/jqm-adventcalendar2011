@@ -85,7 +85,7 @@ Addenpa Calendar 2011
 <center>
 <h3>挿入が失敗した</h3>
 </center>
-と表現されていたが、今回は別のコンポーネントであるため、便宜上 <strong>倦怠期</strong> と呼ばせて頂いている。同問題を回避するには jQuery Mobile について理解するのが一番の近道だ。早速<a href="http://hisasann.com/housetect/2011/02/jquerymobile.html">ラブラブな程に jQuery Mobile を紹介している記事</a>を通読した結果、以下を実施すべきだと譲歩してみた。
+と表現されていたが、今回は別のコンポーネントであるために便宜上 <strong>倦怠期</strong> と呼ばせて頂いている。この問題を回避するためには、 jQuery Mobile について理解するのが一番の近道だ。早速<a href="http://hisasann.com/housetect/2011/02/jquerymobile.html">ラブラブな程に jQuery Mobile を紹介している記事</a>を通読し、以下を実施すべきだと jQuery Mobile 側に譲歩してみた。
 <pre>
     $.ajax({
         //中略........
@@ -94,8 +94,8 @@ Addenpa Calendar 2011
         }
 </pre>
 その結果、なんと恥ずかしがって隠れてしまった（display:none が設定された）のだ。<br />
-<center><img src="img/jqm20111205-1.JPG"></center><br />
-恥ずかしがって隠れてしまうとは、なんとも<a href="http://detail.chiebukuro.yahoo.co.jp/qa/question_detail/q1019653590">初奴</a>ではあるまいか。私の記憶が確かならば、jQuery Mobile b2 当時では上記の手順で倦怠期が回避できたはずだが、最近では方法が変わってしまったらしい。<br />
+<center><img src="img/jqm20111205-2.JPG"></center><br />
+恥ずかしがって隠れてしまうとは、なんとも<a href="http://detail.chiebukuro.yahoo.co.jp/qa/question_detail/q1019653590">初奴</a>ではあるまいか。私の記憶が確かならば、jQuery Mobile b2 当時では上記の手順で倦怠期が回避できたはずだ。どうやら最近は方法が変わってしまったらしい。<br />
 そうは言っても、このままではお互いラブラブすることはできない。様々な試行錯誤の結果、以下であれば倦怠期を再活性できることが分かった。
 <pre>
     $.ajax({
