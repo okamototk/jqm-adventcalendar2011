@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html> 
+<head>
+  <meta charset="utf-8" >
+  <meta name="viewport" content="width=device-width, initial-scale=1"> 
+    <title>JQM電波暦'11(12/13)</title>
+  <link rel="stylesheet" href="css/jquery.mobile-1.0.min.css" > 
+  <style>
+  pre {
+     background-color:#000;
+     color:#FFF;
+     padding: 1em 1em 1em 1em ;
+  }
+  </style>
+ <script src="js/jquery-1.6.4.min.js">
+ </script>
+ <script>
+ $(document).bind("mobileinit", function(){
+   $.mobile.page.prototype.options.addBackBtn = true;
+   $.mobile.page.prototype.options.backBtnText = "戻る";
+   $(document).bind("pagebeforechange",function(e,data){
+     $.getScript("//platform.twitter.com/widgets.js");
+   });
+   $("#jqm20111213").live('pageshow',function(pe,ui){
+     $("#search").live("keypress",function(e){
+       if(e.keyCode == 13){
+         alert('検索処理実行！！¥nキーワード:'+$("#search").val());
+       }
+     });
+   });
+ });
+ </script>
+
+ <script src="js/jquery.mobile-1.0.min.js">
+ </script>
+</head>                                             
+<body>                                              
+<div data-role="page" id="jqm20111213">
+   <div data-role="header">
+    <h1>JQM電波暦'11(12/13)</h1>
+   <span style="position: absolute; right: 10px; top: .6em">
+       <a href="https://twitter.com/share"
+class="twitter-share-button data-role-none" data-count="none"
+data-via="LightningX" data-lang="ja">ツイート</a></span>
+   </div>
+   <div data-role="content" style="background-color:#FFF;">
+<center>
+<h4>
+jQuery Mobile <br>
+Addenpa Calendar 2011
+</h4>
+</center>
+<h4>第13話: 参戦方法<br>(2011/12/13)</h4>
+<p>
+相変わらず、<a href="http://atnd.org/events/22837">翼君、岬君ツートップの如き、2名で進めている当Advent Calendar</a>であるが、実は参戦したいのだが、どうやって参戦したいか分からないというコメントを<strong>多数の諸兄</strong>から頂いた。ネタも切れつつあることだし、今日は参戦方法について整理していきたいと思う。
+</p>
+<h4>ATNDにエントリー</h4>
+<p>
+まず、ATNDにエントリーして欲しい。<a href="http://atnd.org/events/22837">ATNDのページの右上のログインしてください</a>をクリックし、twiter/googleアカウントなどでログインし、参加するボタンを押して参戦する旨をコメントを入力すれば完了だ。<strong>何日の記事</strong>を担当するかも書いてくれると助かる。
+</p>
+
+<h4>執筆・公開</h4>
+<p>
+執筆はブログに執筆してもいいし、jQuery Mobileで執筆してもいい。執筆が終わったら、ATNDの下の方のコメント欄に執筆が完了した旨とURLを報告すれば公開は完了だ。
+</p>
+<p>
+作風は基本上から目線の変態的な記事が多いが、ネタが切れてきたので、正直、
+<center>
+<h3>なんでもいい</h3>
+</center>
+。上から目線の記事にしたい場合は、適当に作成した文書の末尾を「だ・である」に書き換えて、「あなた・読者」を<strong>「愚民」</strong>に置換すれば簡単に作成できる。<strong>是非、会社で作成する文書で一度試してもらいたい</strong>。
+
+jQuery Mobile版のjQuery Mobile Advent Calendar 2011はGitHubで管理してる。以下、GitHubを利用して執筆する方法を紹介しよう。これは、jQuery Mobileを使わなくても参考になる情報なので、是非お読み頂きたい。既にGitHubの使い方を修得している貴兄、貴女にとっては不要な情報なので、今更そんなこと書くなよとクレームをつける前に<strong>速やかに立ち去るのがよかろう</strong>。
+</p>
+<h4>準備</h4>
+<p>
+最初にアカウントの作成とフォークをしよう。ちなみにフォークはあっても<strong>スプーンはない</strong>。助手とは逆なのである。それはさておき、<a href="https://github.com/signup/free">アカウントの作成はここ</a>から行う。アカウントができたら、GitHubの右へのページの「Login」からログインをしよう。
+</p>
+<p>
+次に、<a href="https://github.com/okamototk/jqm-adventcalendar2011/">GitHub上にあるjquery mobile advent calendar2011のリポジトリ</a>を開く。右上のForkと書かれたボタン(灰色のさくらんぼみたいなアイコンがあるボタンがそれだ！！)をクリックしてフォークしよう。すると、自分のリポジトリとしてフォークされる。画面上部の猫みたいなアイコンと自分のアカウント名がある部分をクリックすると、そなたのページが表示されるが、Repositoriesにjqm-adventcalendar2011というリポジトリが作成されているはずだ。
+</p>
+<h4>チェックアウト・編集・コミット</h4>
+<p>
+チェックアウトは次のようにしよう。
+<pre>
+$ git clone https://xxxxx@github.com/xxxxx/jqm-adventcalendar2011
+$ cd jqm-adventcalendar2011
+$ git branch -a
+...
+ remotes/origin/gh-pages
+...
+$ git checkout gh-pages  # ブランチ変更
+</pre>
+ちなみにxxxxxxは18禁の表現に使う伏字ではなく貴方のアカウント名だ。それが不満であれば、色々と妄想してもいいだろう。チェックアウトするときは、<strong>自分のアカウント名を入れるのを忘れないように</strong>しよう。後でアカウント設定が必要になり面倒だから。余談だが、GitHubは、gh-pagesブランチでGitHubのWebページを管理している。gh-pagesにコミット・プッシュすれば自動的にWebページに反映されるのだ。jqm201112xx.htmlというファイルがあるので、自分が担当したい日の名前に適用にコピーして編集しよう。index.htmlを書き換えて、自分の記事へのリンクも追加するのも忘れずに。編集が完了したら、コミットしてリポジトリへ反映させよう。
+<pre>
+$ git add jqm201112xx.html(貴方が追加したファイル)
+$ git add -p  #  (変更点を確認)
+$ git commit
+$ git push
+</pre>
+しばらくすると、GitHubからWebページのビルドに成功した旨の通知が届きhttp:/xxxxx.github.com/jqm-adventcalendar2011/にアクセスするとWebページにアクセスできるようになっているはずだ。くどいようだが、xxxxxは18禁の表現に使う伏字ではなく貴方のアカウント名だ。ちなみに、cygwinのgitではプッシュできないことがあるかも知れないので、Windowsを利用している場合、MSysGitを利用することをお薦めする。
+</p>
+<h4>プルリクエスト</h4>
+<p>
+さて、この状態では、貴方のリポジトリ上でWebページを公開しているだけだ。このリポジトリを私のリポジトリへマージするには、プルリクエストを送ればいい。画面上部のPull Requestのボタンをクリックしよう(山の上に矢印が付いているボタンだ)。あとは、Base branchにgh-pagesをHead branchにもgh-pagesを指定して、Update Commit Rangeボタンを押せばプルリクエストの送信は完了だ。
+</p>
+<p>
+送信されたプルリクエストは私の方で確認できるようになっており、ボタン一つで私のリポジトリにマージできる。便利な世の中になったものだ。プルリクエストが完了したのを見計らって、ATNDのページに記事を公開した旨を流したり、twitterで大々的に宣伝すればこれで完了だ。
+</p>
+<p>
+jQuery Mobile Addenpa Calender では <a href="http://atnd.org/events/22837">執筆者を募集</a>している。（聖闘士）聖夜までの熱い盛り上がり、貴兄にもご参加頂きたい。
+</p>
+<hr>
+</div>
+</div>
+</body>
+</html>
+
