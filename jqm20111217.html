@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html> 
+<head>
+  <meta charset="utf-8" >
+  <meta name="viewport" content="width=device-width, initial-scale=1"> 
+    <title>JQM電波暦'11(12/17)</title>
+  <link rel="stylesheet" href="css/jquery.mobile-1.0.min.css" > 
+  <style>
+  pre {
+     background-color:#000;
+     color:#FFF;
+     padding: 1em 1em 1em 1em ;
+  }
+  </style>
+ <script type="text/javascript" src="js/jquery-1.6.4.min.js">
+ </script>
+ <script>
+ $(document).bind("mobileinit", function(){
+   $.mobile.page.prototype.options.addBackBtn = true;
+   $.mobile.page.prototype.options.backBtnText = "戻る";
+   $(document).bind("pagebeforechange",function(e,data){
+     $.getScript("//platform.twitter.com/widgets.js");
+   });
+ });
+ </script>
+
+ <script type="text/javascript" src="js/jquery.mobile-1.0.min.js"></script>
+</head>
+<body>
+<div data-role="page" id="jqm20111217">
+   <div data-role="header">
+   <a data-rel="back">戻る</a>
+    <h1>JQM電波暦'11(17)</h1>
+   <span style="position: absolute; right: 2px; top: .7em">
+       <a href="https://twitter.com/share"
+class="twitter-share-button data-role-none" data-count="none"
+data-via="LightningX" data-lang="ja">ツイート</a></span>
+   </div>
+   <div data-role="content" style="background-color:#FFF;">
+<center>
+<h4>
+jQuery Mobile <br>
+Addenpa Calendar 2011
+</h4>
+</center>
+<h4>第17話: 見た目で勝負<br>(2011/12/17)</h4>
+<p>さて、いよいよ年末も差し迫った状況であるが、読者各位も jQuery Mobile とともにラブラブな夜を過ごしているだろうか。高鳴る胸の鼓動とともに、是非 熱い思いを本Advent Calendarにぶつけて頂ければ幸いだ。</p>
+<p>昨日の記事 <a href="jqm20111216.html">第16話: メンクイなあなたに</a>にて、見た目の重要性を述べさせて頂いたが、今回は レイアウト について紹介させて頂きたいと考えている。せっかくドレスアップしたところで、小物等があるべき位置にないとかえって無作法というものだ。</p>
+<p>jQuery Mobile でも（業務な方々が際好きな）<strong>グリッド</strong>と呼ばれるレイアウト手法が存在する。jQuery Mobile の話なのに、ここ２～３回に至るまで、見た目の話をしなかった辺り、執筆者各位が
+<center><h4>中身を重視する堅実派</h4></center>
+であることがお分かり頂けると思う。さて、次は実際にグリッドのレイアウトを表示する。</p>
+<div class="ui-grid-b">
+ <div class="ui-block-a">1行目 ヨハン </div>
+ <div class="ui-block-b">1行目 lightningx </div>
+ <div class="ui-block-c">1行目 normalian </div>
+ <div class="ui-block-a">2行目 ヨハン </div>
+ <div class="ui-block-b">2行目 lightningx </div>
+ <div class="ui-block-c">2行目 normalian </div>
+</div>
+<p>
+ご覧の様に、2行×3列のグリッドが表示されている。本Advent Calendarを通読している各位ならば、<b>テーブルレイアウト</b>という語彙を聞いて胸が熱くなる方も居るだろうが、jQuery Mobileの様にナウでヤングなフレームワークはもっとクールだ。ソースコードは以下となる。
+<pre>
+&lt;div class="ui-grid-b" data-theme="a" data-content-theme="a">
+ &lt;div class="ui-block-a">1行目 ヨハン &lt;/div>
+ &lt;div class="ui-block-b">1行目 lightningx &lt;/div>
+ &lt;div class="ui-block-c">1行目 normalian &lt;/div>
+ &lt;div class="ui-block-a">2行目 ヨハン &lt;/div>
+ &lt;div class="ui-block-b">2行目 lightningx &lt;/div>
+ &lt;div class="ui-block-c">2行目 normalian &lt;/div>
+&lt;/div>
+</pre>
+</p>
+<p>
+ちょっと戸惑った方も居るかもしれないが、「ui-grid-<b>b</b>」の b 部分で列数を指定している。a ならば 2列、 b ならば 3列といったものであるため、注意してほしい。</p>
+<p>今回は真面目に技術を紹介しすぎた気がするが、今からでも当アドベンドカレンダーに参加したい方がいれば<a href="http://atnd.org/events/22837">ATNDからエントリー</a>して欲しい。以上だ。</p>
+<hr>
+</div>
+</div>
+</body>
+</html>
+
