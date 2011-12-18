@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html> 
+<head>
+  <meta charset="utf-8" >
+  <meta name="viewport" content="width=device-width, initial-scale=1"> 
+    <title>JQM電波暦'11(12/19)</title>
+  <link rel="stylesheet" href="css/jquery.mobile-1.0.min.css" > 
+  <style>
+  pre {
+     background-color:#000;
+     color:#FFF;
+     padding: 1em 1em 1em 1em ;
+  }
+  </style>
+ <script type="text/javascript" src="js/jquery-1.6.4.min.js">
+ </script>
+ <script>
+ $(document).bind("mobileinit", function(){
+   $.mobile.page.prototype.options.addBackBtn = true;
+   $.mobile.page.prototype.options.backBtnText = "戻る";
+   $(document).bind("pagebeforechange",function(e,data){
+     $.getScript("//platform.twitter.com/widgets.js");
+   });
+ });
+ </script>
+
+ <script src="js/jquery.mobile-1.0.min.js"></script>
+
+</head>
+<body>
+<div data-role="page" id="jqm20111219" class="android">
+   <div data-role="header">
+   <a data-rel="back">戻る</a>
+    <h1>JQM電波暦'11(19)</h1>
+   <span style="position: absolute; right: 2px; top: .7em">
+       <a href="https://twitter.com/share"
+class="twitter-share-button data-role-none" data-count="none"
+data-via="LightningX" data-lang="ja">ツイート</a></span>
+   </div>
+   <div data-role="content" style="background-color:#FFF;">
+<center>
+<h4>
+jQuery Mobile <br>
+Addenpa Calendar 2011
+</h4>
+</center>
+<h4>第19話: エンドレス12(2)<br>(2011/12/18)</h4>
+<p>
+読者の諸君においては、本連載を読んでjQuery Mobileに胸膨らませていることだろう。もっとも、読者のほとんどは男子であり、<strong>膨らます胸など持ちあわせていない</strong>かも知れないが。
+</p>
+<p>
+しかしながら、そのUIのショボさにがっかりした諸兄/諸姉も多いかも知れない。</p>
+<p>
+見た目というのは、非常に重要である。例えば、あなたが合コンに行って、異性を値踏みするときに、最初に気にするのは何だろうか?やはり、見た目である。<strong>「人は見た目ではない。中身だ」と言っている奴に限って、綺麗な女性と付き合っている</strong>のが現実だ。
+</p>
+<p>
+昔某TV番組で行った実験によれば、モデルと一般的な学生を入社面談に差し向け、モデルには若干論理性に欠ける発言をさせ、一般的な学生には普通に対応させたところ、モデルの方が合格率が高かったことがある。敢えて言おう、
+<center>
+<h2>世の中所詮<br>見た目である</h2>
+</center>
+と。別に、<strong>私がもてないから僻んでいる訳ではない</strong>ことを強調しておこう。
+</p>
+<p>
+さて、モバイルサイトにおいても、見た目は重要だ。ところで諸兄は、<a href="http://jqueryui.com/themeroller/">jQuery ThemeRoller</a>というのをご存知だろうか。jQuery ThemeRollerは、図工で赤点を取った読者でも簡単にjQuery UIのテーマを簡単に作成できるオンラインのツールだ。
+<a href="http://jquerymobile.com/themeroller/">ThemeRoller for jQuery MobileはそのjQuery Mobile版だ。
+コードも非常に簡単だ。テーマをダウンロードしたら、
+<pre>
+ &lt;link rel="stylesheet" href="themes/yourtheme.css" />
+</pre>
+と1行加えればいい。実施にこのページを見れば、カスタマイズしたテーマが適用されていることに気づくだろう。
+</p>
+<p>
+既に部員の募集は諦めているが、もし、当アドベンドカレンダーに参加したい奴がいれば<a href="http://atnd.org/events/22837">ATNDからエントリー</a>して欲しい。以上だ。
+</p>
+<hr>
+</div>
+</div>
+</body>
+</html>
+
