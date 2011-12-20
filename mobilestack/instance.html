@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html> 
+  <head>
+    <title>MobileStack</title>
+    <meta charset="utf-8" >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="stylesheet" href="css/jquery.mobile-1.0.min.css"/>
+<!--    <link rel="stylesheet" href="css/iosstyle.css"/>-->
+    <script src="js/jquery-1.6.4.min.js" > </script>
+    <!--[if IE]> 
+    <script> 
+      window.console = {log: function(str){}};
+    </script>
+    <![endif]-->
+    <script src="js/jquery.mobile-1.0.min.js" ></script>
+  </head>
+  <body>
+    <div data-role="page" id="instance">
+      <div data-role="header">
+        <h2>i-xxxx</h2>
+      </div>
+      <div data-role="content">
+        <div data-role="fieldcontain">
+          <label for="name">名前</label>
+          <input type="text" name="name" id="name" readonly value="Sientific Linux 6.0"/>
+        </div>
+    <form action="instancelist.html" data-transition="flip">
+      <div data-role="fieldcontain">
+	<label for="ip">Floating IP</label>
+	<select name="ip" id="ip">
+             <option value="-">-</option>
+             <option selected value="10.68.123.1">10.68.123.1</option>
+             <option value="10.68.123.2">10.68.123.2</option>
+             <option value="10.68.123.3">10.68.123.3</option>
+        </select>
+      </div>
+
+<div class="ui-body ui-body-b">
+<fieldset class="ui-grid-a">
+<div class="ui-block-a"><a data-transition="flip" data-direction="reverse" data-role="button" href="instancelist.html" data-icon="refresh">設定</a></div>
+<div class="ui-block-b"><a data-role="button" href="confirm-shutdown.html" data-icon="delete" data-transition="pop">停止</a></div>
+</fieldset>
+</div>
+</form>
+</div>
+<div data-role="footer" data-position="fixed" >
+  <div data-role="navbar" data-iconpos="top">
+<ul>
+<li><a data-icon="home"></a></li>
+<li><a data-icon="grid" href="network.html"></a></li>
+<li><a data-icon="star"></a></li>
+<li><a data-icon="gear"></a></li>
+<!--<li><a data-icon="search"></a></li>-->
+</ul>
+</div>
+</div>
+</div>
+</body>
+</html>

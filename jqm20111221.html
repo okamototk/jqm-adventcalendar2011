@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html> 
+<head>
+  <meta charset="utf-8" >
+  <meta name="viewport" content="width=device-width, initial-scale=1"> 
+    <title>JQM電波暦'11(12/21)</title>
+  <link rel="stylesheet" href="css/jquery.mobile-1.0.min.css" > 
+  <style>
+  pre {
+     background-color:#000;
+     color:#FFF;
+     padding: 1em 1em 1em 1em ;
+  }
+  </style>
+ <script type="text/javascript" src="js/jquery-1.6.4.min.js">
+ </script>
+ <script>
+ $(document).bind("mobileinit", function(){
+   $.mobile.page.prototype.options.addBackBtn = true;
+   $.mobile.page.prototype.options.backBtnText = "戻る";
+   $(document).bind("pagebeforechange",function(e,data){
+     $.getScript("//platform.twitter.com/widgets.js");
+   });
+ });
+ </script>
+
+ <script src="js/jquery.mobile-1.0.min.js"></script>
+
+</head>
+<body>
+<div data-role="page" id="jqm20111221" class="android">
+   <div data-role="header">
+   <a data-rel="back">戻る</a>
+    <h1>JQM電波暦'11(20)</h1>
+   <span style="position: absolute; right: 2px; top: .7em">
+       <a href="https://twitter.com/share"
+class="twitter-share-button data-role-none" data-count="none"
+data-via="LightningX" data-lang="ja">ツイート</a></span>
+   </div>
+   <div data-role="content" style="background-color:#FFF;">
+<center>
+<h4>
+jQuery Mobile <br>
+Addenpa Calendar 2011
+</h4>
+</center>
+<h4>第21話: 墓村<br>(2011/12/21)</h4>
+<p>
+読者の諸君は、ハッカソンというものをご存知だろうか。何人かで集まってハックなどを行う行為のことを巷では。ハッカソンと呼んでいる。ちなみに、今日のハッカソンはおやじが多かったため、私は親しみを込めて墓村と呼んでいる。
+</p>
+<p>
+さて、今日はその墓村賞味1時間半程度で実装したモックアップを紹介しよう。Android/Windows Phoneでも動作するができればiPhoneでご覧いただきたい。中身は、なんとなくクラウド上の仮想マシンやネットワークを管理するソフトウェアのモックアップだと思って頂ければよい。興味がある方は、<a href="mobilestack/" ajax-data="false">こちらから</a>ご覧いただきたい。
+</p>
+<hr>
+</div>
+</div>
+</body>
+</html>
