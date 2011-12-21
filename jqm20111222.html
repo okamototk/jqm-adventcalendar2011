@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html> 
+<head>
+  <meta charset="utf-8" >
+  <meta name="viewport" content="width=device-width, initial-scale=1"> 
+    <title>JQM電波暦'11(12/22)</title>
+  <link rel="stylesheet" href="css/jquery.mobile-1.0.min.css" > 
+  <style>
+  pre {
+     background-color:#000;
+     color:#FFF;
+     padding: 1em 1em 1em 1em ;
+  }
+  </style>
+ <script type="text/javascript" src="js/jquery-1.6.4.min.js">
+ </script>
+<script src="http://maps.google.com/maps/api/js?sensor=true">
+ <script>
+ $(document).live("mobileinit", function(){
+   $.mobile.page.prototype.options.addBackBtn = true;
+   $.mobile.page.prototype.options.backBtnText = "戻る";
+ });
+ </script>
+
+ <script src="js/jquery.mobile-1.0.min.js"></script>
+
+</head>
+<body>
+<div data-role="page" id="jqm20111222" class="android">
+   <div data-role="header">
+   <a data-rel="back">戻る</a>
+    <h1>JQM電波暦'11(22)</h1>
+   <span style="position: absolute; right: 2px; top: .7em">
+       <a href="https://twitter.com/share"
+class="twitter-share-button data-role-none" data-count="none"
+data-via="LightningX" data-lang="ja">ツイート</a></span>
+   </div>
+   <div data-role="content" style="background-color:#FFF;">
+<center>
+<h4>
+jQuery Mobile <br>
+Addenpa Calendar 2011
+</h4>
+</center>
+
+<h4>第22話: 墓村(2)<br>(2011/12/21)</h4>
+<p>
+読者の諸君は、ハッカソンというものをご存知だろうか。何人かで集まってハックなどを行う行為のことを巷では。ハッカソンと呼んでいる。ちなみに、今日のハッカソンは男ばかりだったため、私は親しみを込めて墓村と呼んでいる。
+</p>
+<p>
+<a href="jqm20111218.html">エンドレス12を彷彿とさせる冒頭</a>でフェイクをかけておいて本題にはいる。昨日はMS主催のWindows Phoneハッカソン in Tokyoに参加してきた。流石MSが主催するハッカソンだけあり、<strong>App Hubのチケットありの飲み放題のジュース、お茶ありの豪華なハッカソン</strong>であった。また、Visual Studioの使い方が分からない私が質問しても嫌な顔一つせずにスタッフの方々は教えてくれた。
+豪華という点では、一昨日のハッカソンは<strong>某大手インフラベンダーの取締役がラッキングしたサーバ</strong>上で動いているOSSクラウドが試験環境として提供されていたので、別の意味ですごかったのだが。
+</p>
+<p>
+さて、Windows Phoneハッカソンと言っても、開発環境はVisual Studioだ。私はVisual StudioやC#なんて3年以上使っていないし、使ったにしろcl.exeとかnmake.exeくらいしか使っていない。トレーナーの方が「Visual Studio皆さん使えますよね」とか言っていたが、<strong>もちろんベテランの振り</strong>をしておいたことは言うまでもなかろう。<strong>cl.exeは立派なVisual Studioのコンポーネントだ</strong>。
+</p>
+<p>
+まぁ、例えVisual StuidoやC#ができなかったとしても我々jQuery Mobilerには問題はない。jQuery Mobileさえあれば十分なのだ。なんだって？
+<blockquote>
+<strong>「jQuery MobileはWebアプリを作るためのフレームワークであり、Windows Phoneアプリをアップロードしてお金を荒稼ぎすることはできないのではないか?」</strong>
+</blockquote>
+だと。
+</p>
+<p>
+ふっ、ふっ、ふっ、甘いわ。PhoneGapさえあれば、Web用に作ったあぷりを<strong>ほほほいのほーいで、ネイティブアプリに変換できる</strong>のだ。特にPhoneGap Builderを使えば、HTML/CSS/JavaScriptで作ったコードをWebでアップロードするだけで、PhoneGap Builderのサーバが勝手に複数のスマートフォンで動作するバイナリを作成してくれる。さしずめ、スマートフォンのボンカレーと言ったところか。
+</p>
+<p>
+<blockquote>
+<strong>「こんなハッカソン楽勝だぜ！！」</strong>
+</blockquote>
+</p>
+<p>
+私は早速PhoneGap Builderのアカウントを作り、アプリをアップロードしようとする。ここで、致命的な誤りに気がついた。
+</p>
+<p>
+<center>
+<h3>PhoneGap Builderでは<br />Windows Phoneが<br />サポートされていない</h3>
+</center>
+Visual Studio不要で開発できると踏んでいた私の算段は脆くも崩れ去った。仕方なく急遽VS用のPhoneGapテンプレートを取ってきてWebアプリを実行させようと思ったが、うまく動かない。どうも、CSSやJavaScriptなどのリソースをサブディレクトリに配置できない上、imgタグでイメージを表示することができないようだ。取り敢えず、
+<pre>
+ProjectHomge/
+  | ...
+  + www/
+     index.html
+     jquery-1.6.4.min.js
+     jquery.mobile-1.0.min.js
+     jquery.mobile-1.0.min.css
+</pre>
+と配備することで、PhoneGapでWindows Phone7.5のネイティブアプリをビルドし動作させることに成功した。ちなみに、<strong>wwwは笑っているのではなく、フォルダ名</strong>であることを補足しておこう。
+</center>
+なんだかんだで、楽勝だったはずのハッカソンは一気に修羅場と化し、結局1本しかアップロードできなかったのはここだけの秘密である。
+</p>
+最後に体調が悪かったので、懇親会に出ずに帰ってしまったことをお詫びしたい。
+<hr>
+</div>
+</div>
+</body>
+</html>
