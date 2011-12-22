@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html> 
+<head>
+  <meta charset="utf-8" >
+  <meta name="viewport" content="width=device-width, initial-scale=1"> 
+    <title>JQM電波暦'11(12/23)</title>
+  <link rel="stylesheet" href="css/jquery.mobile-1.0.min.css" > 
+  <style>
+  pre {
+     background-color:#000;
+     color:#FFF;
+     padding: 1em 1em 1em 1em ;
+  }
+  </style>
+ <script type="text/javascript" src="js/jquery-1.6.4.min.js">
+ </script>
+<script src="http://maps.google.com/maps/api/js?sensor=true">
+ <script>
+ $(document).live("mobileinit", function(){
+   $.mobile.page.prototype.options.addBackBtn = true;
+   $.mobile.page.prototype.options.backBtnText = "戻る";
+ });
+ </script>
+
+ <script src="js/jquery.mobile-1.0.min.js"></script>
+
+</head>
+<body>
+<div data-role="page" id="jqm20111223" class="android">
+   <div data-role="header">
+   <a data-rel="back">戻る</a>
+    <h1>JQM電波暦'11(23)</h1>
+   <span style="position: absolute; right: 2px; top: .7em">
+       <a href="https://twitter.com/share"
+class="twitter-share-button data-role-none" data-count="none"
+data-via="LightningX" data-lang="ja">ツイート</a></span>
+   </div>
+   <div data-role="content" style="background-color:#FFF;">
+<center>
+<h4>
+Addenpa Calendar 2011
+</h4>
+</center>
+
+<h4>第23話: PhoneGap+WP7.5<br>(2011/12/23)</h4>
+<p>
+クリスマスまであと1日と差し迫ったが、皆の衆は如何お過ごしか?　もっとも、本記事の読者は、間違いなく何も予定が入っていないと思われるので、特に心配はしていないが。
+</p>
+<p>
+さて、<a href="jqm20111221.html">先日のエントリ</a>で、Windows Phone+PhoneGapでイメージの読み込みができないという問題を書いた。実は、WebサイトのURLを指定すると見ることができた。色々ほげったところ、jQuery MobileのサンプルサイトがPhoneGap上で動作させることができたので、紹介しておこう。
+</p>
+<p>
+具体的には、相対パスへのimg要素のリンクは利用できない。絶対パスで指定する必要があった。また、www/ディレクトリ無いのCSS/JavaScript/HTML以外はアクセスできない。これを知っておけば、Windows PhoneでPhone Gapは快適に動かせる。実際にjQuery MobileのデモをPhoneGapで変換したネイティブアプリから表示させてみた。
+
+<center>
+<img width="300px" src="img/pg+wp7.5.png">
+</center>
+
+
+PhoneGap Appに含めれるリソースには制限があるため、PhoneGapはブートストラップ的に利用し実際のアプリケーションはWebサイト上に配備するのがよかろう。アプリケーションキャッシュが使えれば、一度コンテンツをスマートフォンに読みこめばオフラインでもPhoneGapアプリにアクセスすることは可能だが、残念ながらWindows Phone 7.5に搭載されているIE Mobile9ではアプリケーションキャッシュは利用できない。次のIE10ではアプリケーションキャッシュを搭載するようなので、IE10(Windows Phone8)の登場を待ちたい。
+</p>
+<p>
+だんだん、普通の記事になっきているが、調子が悪いので許してほしい。
+</p>
+<hr>
+</div>
+</div>
+</body>
+</html>
