@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html> 
+<head>
+  <meta charset="utf-8" >
+  <meta name="viewport" content="width=device-width, initial-scale=1"> 
+    <title>JQM電波暦'11(12/24)</title>
+  <link rel="stylesheet" href="css/jquery.mobile-1.0.min.css" > 
+  <style>
+  pre {
+     background-color:#000;
+     color:#FFF;
+     padding: 1em 1em 1em 1em ;
+  }
+  </style>
+ <script type="text/javascript" src="js/jquery-1.6.4.min.js">
+ </script>
+<script src="http://maps.google.com/maps/api/js?sensor=true">
+ <script>
+ $(document).live("mobileinit", function(){
+   $.mobile.page.prototype.options.addBackBtn = true;
+   $.mobile.page.prototype.options.backBtnText = "戻る";
+ });
+ </script>
+
+ <script src="js/jquery.mobile-1.0.min.js"></script>
+
+</head>
+<body>
+<div data-role="page" id="jqm20111224" class="android">
+   <div data-role="header">
+   <a data-rel="back">戻る</a>
+    <h1>JQM電波暦'11(24)</h1>
+   <span style="position: absolute; right: 2px; top: .7em">
+       <a href="https://twitter.com/share"
+class="twitter-share-button data-role-none" data-count="none"
+data-via="LightningX" data-lang="ja">ツイート</a></span>
+   </div>
+   <div data-role="content" style="background-color:#FFF;">
+<center>
+<h4>
+Addenpa Calendar 2011
+</h4>
+</center>
+
+<h4>第24話: jQuery Mobileの開発環境<br>(2011/12/24)</h4>
+<p>
+  諸君は、エディタに何をお使いだろか?もちろん、
+  <center>
+    <h2>xyzzy</h2>
+  </center>
+  を使っていることと思う。世の中には2種類のエンジニアしかいない。
+  <center>
+    <h2>xyzzyを使っているエンジニアと使っていないエンジニア</h2>
+  </center>
+だ。歴代の後輩の中でも、出来る奴は全員xyzzyを使っている。これは実話だ。私がもし採用の面接官をするとすれば、ただ一つの質問をするだろう。
+  <center>
+    <h2>xyzzyを使っているか?</h2>
+  </center>
+正直、プログラミング経験、出身大学、学科、学生時代に何をやってきたか。そんなものを聞く必要はない。志望理由でさえ不要だ。この質問一つで40分の採用面接を20秒で終わらせることができる。もし採用の人間がこの文書を読んでいたら是非試してもらいたい。今まで行なっていた面接が如何に愚かだったか気づくだろう。
+</p>
+<p>
+  諸君の敬愛するxyzzyはもちろんjQuery Mobileの開発でもその威力を遺憾なく発揮する。今日は、最強のjQuery Mobile開発環境を構築する話をしよう。非常に簡単だ。まずは、html+-modeと拡張javascript-modeをインストールしよう(xyzzyはもちろんインストールされていると思うので省略)。
+  <ul data-role="listview" data-inset="true">		
+<li><a href="http://xyzzy.s53.xrea.com/wiki/index.php?QuickTour%2Fext%2Fhtml%2B-mode">html+-mode</a></li>
+<li><a href="http://xyzzy.s53.xrea.com/wiki/index.php?%B3%C8%C4%A5lisp%2Fjavascript-mode">拡張javascript-mode</a></li>
+</ul>
+インストールが完了したら、xyzzyをインストールしたフォルダにあるetc/HTMLファイルに下記の設定を追記するだけだ。
+  <pre>
+;*-jQueryMobile
+data-role
+data-ajax
+data-rel
+data-direction
+data-transition
+data-collapsed
+data-role
+data-inline
+data-type
+data-icon
+data-iconpos
+data-theme
+data-add-back-btn
+  </pre>
+これだけで、
+jQuery Mobileのカスタムデータ属性を補完できるようになる。例えば、「&lt;div data-」まで入力してタブキーを押せば、次のように補完候補を表示してくれる。
+</p>
+<p>
+<center>
+  <a href="img/xyzzy.img"><img width="300px" src="img/xyzzy.png" /></a>
+</center>
+</p>
+<p>
+これを見て、多くの読者はこう感じたかも知れない。
+    <center>
+    <h2>まるでEclipseのようだ</h2>
+</center>
+    と。今のところ、jQuery Mobileに対応した無償で使える開発環境は
+    <center>
+    <h2>xyzzyだけ</h2>
+  </center>
+    である。jQuery Mobileの導入を検討している諸君は合わせてxyzzyの導入も検討するとよかろう。
+  </p>
+<hr>
+</div>
+</div>
+</body>
+</html>
